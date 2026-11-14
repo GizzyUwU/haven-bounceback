@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cv6unach6wkyu" path="res://start.png" id="6_8cye3"]
 [ext_resource type="Script" uid="uid://dlowx4var0sos" path="res://start_button.gd" id="7_2orkt"]
 [ext_resource type="Texture2D" uid="uid://jc7neavorb3w" path="res://arrow.png" id="8_i2t4f"]
+[ext_resource type="Script" uid="uid://u5nk8n7f72gh" path="res://win.gd" id="12_8b0r0"]
+[ext_resource type="Texture2D" uid="uid://dn8uvhk7khnb3" path="res://win.png" id="12_aicyk"]
+[ext_resource type="Script" uid="uid://dy78x0iwil6x4" path="res://audio_stream_player.gd" id="14_h6smj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b4ue"]
 texture = ExtResource("1_vonw3")
@@ -9754,6 +9757,9 @@ size = Vector2(2447.6035, 47.015217)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4d1p"]
 size = Vector2(91.5, 1362.665)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7521t"]
+radius = 128.0
+
 [node name="Node2D" type="Node2D" unique_id=1959406539]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=700108364]
@@ -9890,6 +9896,29 @@ gravity_scale = 0.0
 position = Vector2(-1269.25, 2361.9976)
 shape = SubResource("RectangleShape2D_q4d1p")
 
+[node name="win" type="Area2D" parent="." unique_id=165197714]
+position = Vector2(1000, -763.095)
+script = ExtResource("12_8b0r0")
+
+[node name="Sprite2D" type="Sprite2D" parent="win" unique_id=818647322]
+texture = ExtResource("12_aicyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win" unique_id=1936490462]
+shape = SubResource("CircleShape2D_7521t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1735416923]
+script = ExtResource("14_h6smj")
+metadata/Audios = ["res://audio/DanielH27 - Kiwi.mp3"]
+
+[node name="VelocityLabel" type="Label" parent="." unique_id=322359458]
+offset_left = -1210.0
+offset_top = 111.0
+offset_right = 411.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 50
+text = "sfdzdfsfdsfd"
+
 [connection signal="pressed" from="Camera2D/BlockButton" to="Camera2D/BlockButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/WedgeButton" to="Camera2D/WedgeButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/StartButton" to="Camera2D/StartButton" method="_on_pressed"]
+[connection signal="body_entered" from="win" to="win" method="_on_body_entered"]
