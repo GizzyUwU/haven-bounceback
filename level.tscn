@@ -9748,6 +9748,12 @@ sources/0 = SubResource("TileSetAtlasSource_oi3di")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cuec"]
 size = Vector2(254.99994, 256.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r16pm"]
+size = Vector2(2447.6035, 47.015217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4d1p"]
+size = Vector2(91.5, 1362.665)
+
 [node name="Node2D" type="Node2D" unique_id=1959406539]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=700108364]
@@ -9823,28 +9829,29 @@ rotation = 3.1415927
 scale = Vector2(0.505, 0.505)
 texture = ExtResource("8_i2t4f")
 
-[node name="block" type="Area2D" parent="." unique_id=691719172]
+[node name="block" type="RigidBody2D" parent="." unique_id=329212606]
 position = Vector2(1545.055, -648)
-scale = Vector2(0.8, 0.8)
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="block" unique_id=380070047]
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_f2txt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="block" unique_id=920895052]
 position = Vector2(0.00036621094, 0.625)
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_4cuec")
 
-[node name="wedge" type="Area2D" parent="." unique_id=143034410]
+[node name="wedge" type="RigidBody2D" parent="." unique_id=127751769]
 position = Vector2(1545.055, -394)
-scale = Vector2(0.8, 0.8)
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="wedge" unique_id=160121533]
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_km5ld")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wedge" unique_id=1008742416]
+scale = Vector2(0.8, 0.8)
 polygon = PackedVector2Array(-1.25, 1.25, -128.75, -125, -127.5, 127.49997, 126.25, 127.49997)
 
 [node name="MouseHover" type="Sprite2D" parent="." unique_id=2078881772]
@@ -9852,6 +9859,36 @@ position = Vector2(-1349.9999, -814.99994)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_f2txt")
 script = ExtResource("5_1ainy")
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="." unique_id=1031960132]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4" unique_id=1325261906]
+position = Vector2(-8.801758, 216.00002)
+shape = SubResource("RectangleShape2D_r16pm")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="." unique_id=1053733322]
+position = Vector2(0, -1431.665)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3" unique_id=2035663093]
+position = Vector2(-8.801758, 216)
+shape = SubResource("RectangleShape2D_r16pm")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1954877113]
+position = Vector2(-1269.25, -501.33252)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1346679712]
+shape = SubResource("RectangleShape2D_q4d1p")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1629567799]
+position = Vector2(2536.675, -2865.62)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1773918633]
+position = Vector2(-1269.25, 2361.9976)
+shape = SubResource("RectangleShape2D_q4d1p")
 
 [connection signal="pressed" from="Camera2D/BlockButton" to="Camera2D/BlockButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/WedgeButton" to="Camera2D/WedgeButton" method="_on_pressed"]
