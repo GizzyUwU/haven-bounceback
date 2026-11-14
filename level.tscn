@@ -9,12 +9,16 @@
 [ext_resource type="Script" uid="uid://biv7xlf4g2xef" path="res://wedge_button.gd" id="5_km5ld"]
 [ext_resource type="Texture2D" uid="uid://cv6unach6wkyu" path="res://start.png" id="6_8cye3"]
 [ext_resource type="Script" uid="uid://dlowx4var0sos" path="res://start_button.gd" id="7_2orkt"]
+[ext_resource type="Texture2D" uid="uid://ci7fmy7ooha7h" path="res://refart.png" id="8_4c15r"]
 [ext_resource type="Texture2D" uid="uid://jc7neavorb3w" path="res://arrow.png" id="8_i2t4f"]
+[ext_resource type="Script" uid="uid://ct5vikwrbjnd8" path="res://restart_button.gd" id="9_ait7k"]
 [ext_resource type="Texture2D" uid="uid://dciljspw12pe2" path="res://char.png" id="9_h6smj"]
 [ext_resource type="Script" uid="uid://u5nk8n7f72gh" path="res://win.gd" id="12_8b0r0"]
 [ext_resource type="Texture2D" uid="uid://dn8uvhk7khnb3" path="res://win.png" id="12_aicyk"]
 [ext_resource type="Script" uid="uid://dy78x0iwil6x4" path="res://audio_stream_player.gd" id="14_h6smj"]
+[ext_resource type="Script" uid="uid://ctox1hlieocsv" path="res://actualwin.gd" id="15_5pxul"]
 [ext_resource type="Texture2D" uid="uid://4gfhttc27wyx" path="res://actualwin.png" id="15_v5j5c"]
+[ext_resource type="Texture2D" uid="uid://kky1qicq3v84" path="res://winscreen.png" id="19_ait7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b4ue"]
 texture = ExtResource("1_vonw3")
@@ -9762,6 +9766,9 @@ size = Vector2(91.5, 1362.665)
 [sub_resource type="CircleShape2D" id="CircleShape2D_7521t"]
 radius = 128.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pxul"]
+size = Vector2(509.9237, 127.500015)
+
 [node name="Node2D" type="Node2D" unique_id=1959406539]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=700108364]
@@ -9816,6 +9823,15 @@ offset_right = 1193.0
 offset_bottom = 166.0
 texture_normal = ExtResource("6_8cye3")
 script = ExtResource("7_2orkt")
+
+[node name="RestartButton" type="TextureButton" parent="Camera2D" unique_id=1503343110]
+offset_left = 914.0
+offset_top = -240.0
+offset_right = 1426.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_4c15r")
+script = ExtResource("9_ait7k")
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=1613099182]
 position = Vector2(25.555, -2.99)
@@ -9922,15 +9938,26 @@ theme_override_font_sizes/font_size = 50
 text = "sfdzdfsfdsfd"
 
 [node name="actualwin" type="Area2D" parent="." unique_id=450353707]
+visible = false
 position = Vector2(23.87, 38.135)
 scale = Vector2(0.655, 0.4)
+script = ExtResource("15_5pxul")
 
 [node name="Sprite2D" type="Sprite2D" parent="actualwin" unique_id=1397788273]
 texture = ExtResource("15_v5j5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="actualwin" unique_id=1700493340]
+position = Vector2(0.19847107, -1.5874863)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_5pxul")
+
+[node name="winscreen" type="Sprite2D" parent="." unique_id=1259045937]
+visible = false
+position = Vector2(0, -566.38)
+texture = ExtResource("19_ait7k")
 
 [connection signal="pressed" from="Camera2D/BlockButton" to="Camera2D/BlockButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/WedgeButton" to="Camera2D/WedgeButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/StartButton" to="Camera2D/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/RestartButton" to="Camera2D/RestartButton" method="_on_pressed"]
 [connection signal="body_entered" from="win" to="win" method="_on_body_entered"]

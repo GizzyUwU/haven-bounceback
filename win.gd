@@ -17,5 +17,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if $"../Ball".checkpoint == 0:
 			body.freeze()
 			self.visible = false
+			$"../actualwin".visible = true
 			print("p1")
 		$"../Ball".checkpoint = 1
