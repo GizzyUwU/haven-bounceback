@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://v3s3wnamyb0p" path="res://mouse_hover.gd" id="5_1ainy"]
 [ext_resource type="Script" uid="uid://biv7xlf4g2xef" path="res://wedge_button.gd" id="5_km5ld"]
 [ext_resource type="Texture2D" uid="uid://cv6unach6wkyu" path="res://start.png" id="6_8cye3"]
+[ext_resource type="Texture2D" uid="uid://bkho8toggfptk" path="res://circle.png" id="6_v7sqt"]
 [ext_resource type="Script" uid="uid://dlowx4var0sos" path="res://start_button.gd" id="7_2orkt"]
+[ext_resource type="Script" uid="uid://11twp7vmnxv0" path="res://circle_button.gd" id="7_ilwjd"]
 [ext_resource type="Texture2D" uid="uid://ci7fmy7ooha7h" path="res://refart.png" id="8_4c15r"]
 [ext_resource type="Texture2D" uid="uid://jc7neavorb3w" path="res://arrow.png" id="8_i2t4f"]
 [ext_resource type="Script" uid="uid://ct5vikwrbjnd8" path="res://restart_button.gd" id="9_ait7k"]
@@ -9757,6 +9759,9 @@ radius = 10.9075
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cuec"]
 size = Vector2(254.99994, 256.25)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7sqt"]
+radius = 128.92014
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r16pm"]
 size = Vector2(2447.6035, 47.015217)
 
@@ -9783,38 +9788,31 @@ offset = Vector2(0, -500)
 zoom = Vector2(0.475, 0.475)
 
 [node name="BlockButton" type="TextureButton" parent="Camera2D" unique_id=1344291382]
-offset_left = -606.0
-offset_top = -1153.33
-offset_right = -350.0
-offset_bottom = -897.32996
+offset_left = -404.0
+offset_top = -1164.0
+offset_right = -148.0
+offset_bottom = -908.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_f2txt")
 script = ExtResource("3_n6hdu")
 
 [node name="WedgeButton" type="TextureButton" parent="Camera2D" unique_id=383126492]
-offset_left = -261.0001
-offset_top = -1153.33
-offset_right = -5.0000916
-offset_bottom = -897.32996
+offset_left = -59.000107
+offset_top = -1164.0
+offset_right = 196.9999
+offset_bottom = -908.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("4_km5ld")
 script = ExtResource("5_km5ld")
 
-[node name="TextureButton3" type="TextureButton" parent="Camera2D" unique_id=2125169749]
-offset_left = 57.99991
-offset_top = -1153.33
-offset_right = 1057.9999
-offset_bottom = -153.32996
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("1_vonw3")
-
-[node name="TextureButton4" type="TextureButton" parent="Camera2D" unique_id=617092909]
-offset_left = 311.9999
-offset_top = -1153.33
-offset_right = 1311.9999
-offset_bottom = -153.32996
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("1_vonw3")
+[node name="CircleButton" type="TextureButton" parent="Camera2D" unique_id=2125169749]
+offset_left = 198.00037
+offset_top = -1172.0
+offset_right = 454.00037
+offset_bottom = -916.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("6_v7sqt")
+script = ExtResource("7_ilwjd")
 
 [node name="StartButton" type="TextureButton" parent="Camera2D" unique_id=1859988921]
 offset_left = 681.0
@@ -9866,6 +9864,19 @@ texture = ExtResource("2_f2txt")
 position = Vector2(0.00036621094, 0.625)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_4cuec")
+
+[node name="circle" type="RigidBody2D" parent="." unique_id=1524973091]
+position = Vector2(1796.99, -648)
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="circle" unique_id=566042513]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_v7sqt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="circle" unique_id=1355554556]
+position = Vector2(0.00036621094, 0.625)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_v7sqt")
 
 [node name="wedge" type="RigidBody2D" parent="." unique_id=127751769]
 position = Vector2(1545.055, -394)
@@ -9935,7 +9946,15 @@ offset_top = 111.0
 offset_right = 411.0
 offset_bottom = 180.0
 theme_override_font_sizes/font_size = 50
-text = "sfdzdfsfdsfd"
+text = "velocity"
+
+[node name="HelpLabel" type="Label" parent="." unique_id=1402730685]
+offset_left = -1210.0
+offset_top = 52.0
+offset_right = 411.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 50
+text = "Bounce your way to the green circle!"
 
 [node name="actualwin" type="Area2D" parent="." unique_id=450353707]
 visible = false
@@ -9958,6 +9977,8 @@ texture = ExtResource("19_ait7k")
 
 [connection signal="pressed" from="Camera2D/BlockButton" to="Camera2D/BlockButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/WedgeButton" to="Camera2D/WedgeButton" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/CircleButton" to="Camera2D/CircleButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/StartButton" to="Camera2D/StartButton" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/RestartButton" to="Camera2D/RestartButton" method="_on_pressed"]
 [connection signal="body_entered" from="win" to="win" method="_on_body_entered"]
+[connection signal="body_entered" from="actualwin" to="actualwin" method="_on_body_entered"]

@@ -33,5 +33,7 @@ func _process(delta: float) -> void:
 	$"../VelocityLabel".text = "Velocity X " + str(velocity.x) + ", Velocity Y " + str(velocity.y)
 
 func _ready():
+	if (randf_range(1, 100) <= 1):
+		$"Sprite2D".texture = load("res://peechar.png")
 	angle = deg_to_rad(randf_range(-50, 50))
 	self.rotation = angle

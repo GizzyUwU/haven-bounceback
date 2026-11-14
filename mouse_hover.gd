@@ -22,6 +22,8 @@ func _process(delta: float) -> void:
 			clone = $"../block".duplicate()
 		elif toClone == "wedge":
 			clone = $"../wedge".duplicate()
+		elif toClone == "circle":
+			clone = $"../circle".duplicate()
 		get_parent().add_child(clone)
 		clone.global_position = get_global_mouse_position()
 		clone.rotation = rotation
