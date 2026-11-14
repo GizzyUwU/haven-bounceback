@@ -15,4 +15,5 @@ func _on_pressed() -> void:
 	var ball = $"../../Ball"
 	var velocity = ball.LAUNCHSPEED
 	var angle = ball.angle
+	ball.unfreeze()
 	ball.velocity += Vector2.RIGHT.rotated(ball.angle - PI/2) * ball.LAUNCHSPEED

@@ -6,6 +6,16 @@ const BOUNCE_STRENGTH = 1
 var angle
 var checkpoint = 0
 
+func freeze() -> void:
+	self.set_physics_process(false) 
+	self.set_process_input(false)
+	self.set_process_unhandled_input(false)
+
+func unfreeze() -> void:
+	self.set_physics_process(true) 
+	self.set_process_input(true)
+	self.set_process_unhandled_input(true)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
