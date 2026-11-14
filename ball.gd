@@ -16,6 +16,9 @@ func _physics_process(delta: float) -> void:
 	elif directionx == -1.0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$Pivot.rotate(-0.1)
-	
 
 	move_and_slide()
+
+func _ready():
+	var angle = randf_range(2, 4)
+	$Pivot.rotation = angle

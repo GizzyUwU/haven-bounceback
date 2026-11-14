@@ -2,7 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://1hhdg6xf0j2d" path="res://placeholder.png" id="1_vonw3"]
 [ext_resource type="Script" uid="uid://cfmb3jxtw1unu" path="res://ball.gd" id="2_0b4ue"]
+[ext_resource type="Texture2D" uid="uid://cm3lb1wao2pu1" path="res://block.png" id="2_f2txt"]
 [ext_resource type="Texture2D" uid="uid://ctk5k7jqylhyv" path="res://icon.svg" id="2_oi3di"]
+[ext_resource type="Script" uid="uid://bjnifym2xn0g5" path="res://block_button.gd" id="3_n6hdu"]
+[ext_resource type="Texture2D" uid="uid://ehsyxrbpa8ls" path="res://wedge.png" id="4_km5ld"]
+[ext_resource type="Script" uid="uid://v3s3wnamyb0p" path="res://mouse_hover.gd" id="5_1ainy"]
+[ext_resource type="Script" uid="uid://biv7xlf4g2xef" path="res://wedge_button.gd" id="5_km5ld"]
+[ext_resource type="Texture2D" uid="uid://jc7neavorb3w" path="res://arrow.png" id="8_i2t4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b4ue"]
 texture = ExtResource("1_vonw3")
@@ -8659,8 +8665,10 @@ texture = ExtResource("1_vonw3")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oi3di")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7521t"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_km5ld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cuec"]
+size = Vector2(254.99994, 256.25)
 
 [node name="Node2D" type="Node2D" unique_id=1959406539]
 
@@ -8672,6 +8680,44 @@ tile_set = SubResource("TileSet_5xgho")
 tile_map_data = PackedByteArray("AAD3/wQAAAAZABUAAAD3/wUAAAAZABYAAAD3/wYAAAAZABcAAAD4/wQAAAAaABUAAAD4/wUAAAAaABYAAAD4/wYAAAAaABcAAAD5/wQAAAAbABUAAAD5/wUAAAAbABYAAAD5/wYAAAAbABcAAAD6/wQAAAAcABUAAAD6/wUAAAAcABYAAAD6/wYAAAAcABcAAAD7/wQAAAAdABUAAAD7/wUAAAAdABYAAAD7/wYAAAAdABcAAAD8/wQAAAAeABUAAAD8/wUAAAAeABYAAAD8/wYAAAAeABcAAAD9/wQAAAAfABUAAAD9/wUAAAAfABYAAAD9/wYAAAAfABcAAAD+/wQAAAAZABUAAAD+/wUAAAAZABYAAAD+/wYAAAAZABcAAAD//wQAAAAaABUAAAD//wUAAAAaABYAAAD//wYAAAAaABcAAAAAAAQAAAAbABUAAAAAAAUAAAAbABYAAAAAAAYAAAAbABcAAAABAAQAAAAcABUAAAABAAUAAAAcABYAAAABAAYAAAAcABcAAAACAAQAAAAdABUAAAACAAUAAAAdABYAAAACAAYAAAAdABcAAAADAAQAAAAeABUAAAADAAUAAAAeABYAAAADAAYAAAAeABcAAAAEAAQAAAAfABUAAAAEAAUAAAAfABYAAAAEAAYAAAAfABcAAAAFAAQAAAAZABUAAAAFAAUAAAAZABYAAAAFAAYAAAAZABcAAAAGAAQAAAAaABUAAAAGAAUAAAAaABYAAAAGAAYAAAAaABcAAAAHAAQAAAAbABUAAAAHAAUAAAAbABYAAAAHAAYAAAAbABcAAAAIAAQAAAAcABUAAAAIAAUAAAAcABYAAAAIAAYAAAAcABcAAAAJAAQAAAAdABUAAAAJAAUAAAAdABYAAAAJAAYAAAAdABcAAAAKAAQAAAAeABUAAAAKAAUAAAAeABYAAAAKAAYAAAAeABcAAAALAAQAAAAfABUAAAALAAUAAAAfABYAAAALAAYAAAAfABcAAAA=")
 tile_set = SubResource("TileSet_7521t")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1971623953]
+offset = Vector2(0, -500)
+zoom = Vector2(0.475, 0.475)
+
+[node name="BlockButton" type="TextureButton" parent="Camera2D" unique_id=1344291382]
+offset_left = -606.0
+offset_top = -1153.33
+offset_right = -350.0
+offset_bottom = -897.32996
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_f2txt")
+script = ExtResource("3_n6hdu")
+
+[node name="WedgeButton" type="TextureButton" parent="Camera2D" unique_id=383126492]
+offset_left = -261.0001
+offset_top = -1153.33
+offset_right = -5.0000916
+offset_bottom = -897.32996
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_km5ld")
+script = ExtResource("5_km5ld")
+
+[node name="TextureButton3" type="TextureButton" parent="Camera2D" unique_id=2125169749]
+offset_left = 57.99991
+offset_top = -1153.33
+offset_right = 1057.9999
+offset_bottom = -153.32996
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("1_vonw3")
+
+[node name="TextureButton4" type="TextureButton" parent="Camera2D" unique_id=617092909]
+offset_left = 311.9999
+offset_top = -1153.33
+offset_right = 1311.9999
+offset_bottom = -153.32996
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("1_vonw3")
+
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=1613099182]
 script = ExtResource("2_0b4ue")
 
@@ -8679,13 +8725,47 @@ script = ExtResource("2_0b4ue")
 texture = ExtResource("2_oi3di")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1371123263]
-shape = SubResource("RectangleShape2D_7521t")
-
-[node name="Camera2D" type="Camera2D" parent="Ball" unique_id=1971623953]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_km5ld")
 
 [node name="Pivot" type="Node2D" parent="Ball" unique_id=1541458836]
+rotation = 3.1415927
 
 [node name="BallArrow" type="Sprite2D" parent="Ball/Pivot" unique_id=1984565753]
 position = Vector2(0, 200)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_vonw3")
+rotation = 3.1415927
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("8_i2t4f")
+
+[node name="block" type="Area2D" parent="." unique_id=691719172]
+position = Vector2(1545.055, -648)
+scale = Vector2(0.8, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="block" unique_id=920895052]
+position = Vector2(0.00012207031, 0.625)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_4cuec")
+
+[node name="Sprite2D" type="Sprite2D" parent="block" unique_id=380070047]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_f2txt")
+
+[node name="wedge" type="Area2D" parent="." unique_id=143034410]
+position = Vector2(1545.055, -394)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="wedge" unique_id=160121533]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_km5ld")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wedge" unique_id=1008742416]
+polygon = PackedVector2Array(-1.25, 1.25, -128.75, -125, -127.5, 127.49997, 126.25, 127.49997)
+
+[node name="MouseHover" type="Sprite2D" parent="." unique_id=2078881772]
+position = Vector2(-1349.9999, -814.99994)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_f2txt")
+script = ExtResource("5_1ainy")
+
+[connection signal="pressed" from="Camera2D/BlockButton" to="Camera2D/BlockButton" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/WedgeButton" to="Camera2D/WedgeButton" method="_on_pressed"]
