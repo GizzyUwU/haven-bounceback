@@ -9783,11 +9783,11 @@ tile_set = SubResource("TileSet_5xgho")
 tile_map_data = PackedByteArray("AAD3/wQAAAAZABUAAAD3/wUAAAAZABYAAAD3/wYAAAAZABcAAAD4/wQAAAAaABUAAAD4/wUAAAAaABYAAAD4/wYAAAAaABcAAAD5/wQAAAAbABUAAAD5/wUAAAAbABYAAAD5/wYAAAAbABcAAAD6/wQAAAAcABUAAAD6/wUAAAAcABYAAAD6/wYAAAAcABcAAAD7/wQAAAAdABUAAAD7/wUAAAAdABYAAAD7/wYAAAAdABcAAAD8/wQAAAAeABUAAAD8/wUAAAAeABYAAAD8/wYAAAAeABcAAAD9/wQAAAAfABUAAAD9/wUAAAAfABYAAAD9/wYAAAAfABcAAAD+/wQAAAAZABUAAAD+/wUAAAAZABYAAAD+/wYAAAAZABcAAAD//wQAAAAaABUAAAD//wUAAAAaABYAAAD//wYAAAAaABcAAAAAAAQAAAAbABUAAAAAAAUAAAAbABYAAAAAAAYAAAAbABcAAAABAAQAAAAcABUAAAABAAUAAAAcABYAAAABAAYAAAAcABcAAAACAAQAAAAdABUAAAACAAUAAAAdABYAAAACAAYAAAAdABcAAAADAAQAAAAeABUAAAADAAUAAAAeABYAAAADAAYAAAAeABcAAAAEAAQAAAAfABUAAAAEAAUAAAAfABYAAAAEAAYAAAAfABcAAAAFAAQAAAAZABUAAAAFAAUAAAAZABYAAAAFAAYAAAAZABcAAAAGAAQAAAAaABUAAAAGAAUAAAAaABYAAAAGAAYAAAAaABcAAAAHAAQAAAAbABUAAAAHAAUAAAAbABYAAAAHAAYAAAAbABcAAAAIAAQAAAAcABUAAAAIAAUAAAAcABYAAAAIAAYAAAAcABcAAAAJAAQAAAAdABUAAAAJAAUAAAAdABYAAAAJAAYAAAAdABcAAAAKAAQAAAAeABUAAAAKAAUAAAAeABYAAAAKAAYAAAAeABcAAAALAAQAAAAfABUAAAALAAUAAAAfABYAAAALAAYAAAAfABcAAAAMAAQAAAAVABQAAAAMAAUAAAAVABUAAAAMAAYAAAAVABYAAAANAAQAAAAWABQAAAANAAUAAAAWABUAAAANAAYAAAAWABYAAAAMAAEAAAAVABQAAAAMAAIAAAAVABUAAAAMAAMAAAAVABYAAAANAAEAAAAWABQAAAANAAIAAAAWABUAAAANAAMAAAAWABYAAAAMAP7/AAAVABQAAAAMAP//AAAVABUAAAAMAAAAAAAVABYAAAANAP7/AAAWABQAAAANAP//AAAWABUAAAANAAAAAAAWABYAAAD1/wQAAAAVABQAAAD1/wUAAAAVABUAAAD1/wYAAAAVABYAAAD2/wQAAAAWABQAAAD2/wUAAAAWABUAAAD2/wYAAAAWABYAAAD1/wEAAAAVABQAAAD1/wIAAAAVABUAAAD1/wMAAAAVABYAAAD2/wEAAAAWABQAAAD2/wIAAAAWABUAAAD2/wMAAAAWABYAAAD1//7/AAAVABQAAAD1////AAAVABUAAAD1/wAAAAAVABYAAAD2//7/AAAWABQAAAD2////AAAWABUAAAD2/wAAAAAWABYAAAA=")
 tile_set = SubResource("TileSet_7521t")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1971623953]
+[node name="Camera2D" type="Camera2D" parent="CollisionLayer" unique_id=1971623953]
 offset = Vector2(0, -500)
 zoom = Vector2(0.475, 0.475)
 
-[node name="BlockButton" type="TextureButton" parent="Camera2D" unique_id=1344291382]
+[node name="BlockButton" type="TextureButton" parent="CollisionLayer/Camera2D" unique_id=1344291382]
 offset_left = -404.0
 offset_top = -1164.0
 offset_right = -148.0
@@ -9796,7 +9796,7 @@ scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_f2txt")
 script = ExtResource("3_n6hdu")
 
-[node name="WedgeButton" type="TextureButton" parent="Camera2D" unique_id=383126492]
+[node name="WedgeButton" type="TextureButton" parent="CollisionLayer/Camera2D" unique_id=383126492]
 offset_left = -59.000107
 offset_top = -1164.0
 offset_right = 196.9999
@@ -9805,7 +9805,7 @@ scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("4_km5ld")
 script = ExtResource("5_km5ld")
 
-[node name="CircleButton" type="TextureButton" parent="Camera2D" unique_id=2125169749]
+[node name="CircleButton" type="TextureButton" parent="CollisionLayer/Camera2D" unique_id=2125169749]
 offset_left = 198.00037
 offset_top = -1172.0
 offset_right = 454.00037
@@ -9814,7 +9814,7 @@ scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("6_v7sqt")
 script = ExtResource("7_ilwjd")
 
-[node name="StartButton" type="TextureButton" parent="Camera2D" unique_id=1859988921]
+[node name="StartButton" type="TextureButton" parent="CollisionLayer/Camera2D" unique_id=1859988921]
 offset_left = 681.0
 offset_top = -90.0
 offset_right = 1193.0
@@ -9822,7 +9822,7 @@ offset_bottom = 166.0
 texture_normal = ExtResource("6_8cye3")
 script = ExtResource("7_2orkt")
 
-[node name="RestartButton" type="TextureButton" parent="Camera2D" unique_id=1503343110]
+[node name="RestartButton" type="TextureButton" parent="CollisionLayer/Camera2D" unique_id=1503343110]
 offset_left = 914.0
 offset_top = -240.0
 offset_right = 1426.0
@@ -9975,10 +9975,10 @@ visible = false
 position = Vector2(0, -566.38)
 texture = ExtResource("19_ait7k")
 
-[connection signal="pressed" from="Camera2D/BlockButton" to="Camera2D/BlockButton" method="_on_pressed"]
-[connection signal="pressed" from="Camera2D/WedgeButton" to="Camera2D/WedgeButton" method="_on_pressed"]
-[connection signal="pressed" from="Camera2D/CircleButton" to="Camera2D/CircleButton" method="_on_pressed"]
-[connection signal="pressed" from="Camera2D/StartButton" to="Camera2D/StartButton" method="_on_pressed"]
-[connection signal="pressed" from="Camera2D/RestartButton" to="Camera2D/RestartButton" method="_on_pressed"]
+[connection signal="pressed" from="CollisionLayer/Camera2D/BlockButton" to="CollisionLayer/Camera2D/BlockButton" method="_on_pressed"]
+[connection signal="pressed" from="CollisionLayer/Camera2D/WedgeButton" to="CollisionLayer/Camera2D/WedgeButton" method="_on_pressed"]
+[connection signal="pressed" from="CollisionLayer/Camera2D/CircleButton" to="CollisionLayer/Camera2D/CircleButton" method="_on_pressed"]
+[connection signal="pressed" from="CollisionLayer/Camera2D/StartButton" to="CollisionLayer/Camera2D/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="CollisionLayer/Camera2D/RestartButton" to="CollisionLayer/Camera2D/RestartButton" method="_on_pressed"]
 [connection signal="body_entered" from="win" to="win" method="_on_body_entered"]
 [connection signal="body_entered" from="actualwin" to="actualwin" method="_on_body_entered"]

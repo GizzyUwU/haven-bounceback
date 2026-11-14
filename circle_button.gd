@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	$"../../MouseHover".texture = load("res://circle.png")
-	$"../../MouseHover".toClone = "circle"
+	$"../../../MouseHover".texture = load("res://circle.png")
+	$"../../../MouseHover".toClone = "circle"

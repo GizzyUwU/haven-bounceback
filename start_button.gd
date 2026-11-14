@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	var ball = $"../../Ball"
+	var ball = $"../../../Ball"
 	var velocity = ball.LAUNCHSPEED
 	var angle = ball.angle
 	ball.unfreeze()
